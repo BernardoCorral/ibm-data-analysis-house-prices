@@ -1,51 +1,102 @@
-# 🏠 Data Analysis with Python – IBM Final Project
+# IBM Data Analysis – House Prices Prediction
 
-This project was developed as the final assignment of the **Data Analysis with Python (IBM)** course.  
-The goal was to analyze and predict house prices in **King County, USA**, applying a complete data science pipeline.
+Projeto final do curso **Data Analysis with Python (IBM)**, com foco em aplicar as principais etapas de um pipeline de Ciência de Dados: análise exploratória, limpeza, visualização e modelagem preditiva.  
+O objetivo foi prever o preço de venda de imóveis no condado de King (EUA), analisando os fatores que mais influenciam o valor final.
+
+
+## Estrutura do Projeto
+
+- **House_Sales_in_King_Count_USA.ipynb** – Notebook principal  
+- **housing.csv** – Dataset utilizado  
+- **README.md** – Documentação do projeto  
+- **LICENSE** – Licença MIT
+
+
+## Contexto
+
+O dataset contém registros de vendas de imóveis no **King County (EUA)**, que inclui Seattle, entre maio de 2014 e maio de 2015.  
+Cada linha representa uma propriedade e suas características físicas, geográficas e estruturais.
+
+As principais variáveis incluem:
+- `sqft_living`: área útil da casa (em pés²)  
+- `bedrooms`, `bathrooms`: número de quartos e banheiros  
+- `floors`: número de andares  
+- `grade`: qualidade da construção  
+- `sqft_above`: área útil acima do nível do solo  
+- `sqft_living15`: média da área útil das 15 casas mais próximas  
+- `price`: variável-alvo (preço de venda)
+
+
+## Etapas do Projeto
+
+### 1. Importação e Exploração Inicial
+- Carregamento do dataset e inspeção de tipos de dados  
+- Avaliação da distribuição das variáveis  
+- Verificação de valores ausentes e duplicados
+
+### 2. Limpeza e Preparação dos Dados
+- Remoção de duplicatas  
+- Conversão de tipos  
+- Normalização e padronização de colunas numéricas  
+
+### 3. Análise Exploratória e Visualização
+A análise exploratória teve como objetivo identificar padrões, outliers e correlações relevantes.  
+Alguns dos gráficos gerados durante o processo estão destacados abaixo:
+
+#### Distribuição do Preço
+![price_distribution](plots/price_distribution.png)
+
+#### Correlação entre Variáveis Numéricas
+![correlation_heatmap](plots/correlation_heatmap.png)
+
+#### Relação entre Área Útil e Preço
+![sqft_vs_price](plots/sqft_vs_price.png)
+
+
+### 4. Modelagem
+Foi desenvolvido um modelo de **Regressão Linear** para prever o preço com base nas variáveis mais relevantes.
+
+
+### 5. Avaliação do Modelo
+As métricas de desempenho foram calculadas com base nos dados de teste:
+
+- **R² (coeficiente de determinação)**: 0.70  
+- **RMSE (Root Mean Squared Error)**: 130,000 (aprox.)
+
+Esses resultados indicam que o modelo é capaz de capturar boa parte da variabilidade do preço com base nas variáveis estruturais e de área.
+
+
+## Tecnologias Utilizadas
+
+- Python 3.10  
+- Pandas  
+- NumPy  
+- Matplotlib  
+- Seaborn  
+- Scikit-learn  
+
+
+
+## Resultados e Insights
+
+As variáveis com maior impacto sobre o preço foram:
+
+| Variável | Correlação com o preço |
+|-----------|------------------------|
+| `sqft_living` | 0.70 |
+| `grade` | 0.67 |
+| `sqft_above` | 0.60 |
+| `bathrooms` | 0.53 |
+
+Esses fatores refletem a influência direta da metragem e da qualidade da construção no valor de mercado das propriedades.
 
 ---
 
-## 📊 Dataset
-The dataset contains residential property sales data, including variables such as:
-- `sqft_living`: house size in square feet  
-- `bedrooms`, `bathrooms`, `floors`  
-- `waterfront`, `view`, `condition`, `grade`  
-- `price`: target variable (house sale price)
+## Autor
 
----
+**Bernardo Corral**  
+Estudante de Ciência de Dados  
+[GitHub](https://github.com/BernardoCorral) • [LinkedIn](https://www.linkedin.com/in/bernardocorral/)
 
-## 🧩 Project Steps
-1. **Data Importing:** reading and inspecting the dataset using *Pandas*  
-2. **Data Wrangling:** handling missing values, normalizing data, converting data types  
-3. **Exploratory Data Analysis (EDA):** exploring correlations, distributions, and patterns with *Matplotlib* and *Seaborn*  
-4. **Model Development:** building a *Linear Regression* model using *scikit-learn*  
-5. **Model Evaluation:** calculating R² and RMSE to assess performance
 
----
 
-## 🧠 Key Insights
-- House size (`sqft_living`) showed the highest correlation with price.  
-- Features such as condition, grade, and number of bathrooms also had strong predictive power.  
-- The linear regression model achieved a solid fit for price prediction, demonstrating practical use of supervised learning techniques.
-
----
-
-## ⚙️ Tech Stack
-- **Python**
-- **Pandas**
-- **NumPy**
-- **Matplotlib**
-- **Seaborn**
-- **scikit-learn**
-
----
-
-## 📁 Files
-- `House_Sales_in_King_Count_USA.ipynb`: main notebook  
-- `housing.csv`: dataset (if included)  
-- `results/`: visual outputs (correlation heatmaps, regression plots, etc.)
-
----
-
-## 🔗 Author
-Developed by **Bernardo Corral** as part of the IBM Data Analyst Professional Certificate.
