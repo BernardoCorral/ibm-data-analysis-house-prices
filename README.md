@@ -40,17 +40,19 @@ As principais variáveis incluem:
 - Normalização e padronização de colunas numéricas  
 
 ### 3. Análise Exploratória e Visualização
+
 A análise exploratória teve como objetivo identificar padrões, outliers e correlações relevantes.  
 Alguns dos gráficos gerados durante o processo estão destacados abaixo:
 
-#### Distribuição do Preço
-![price_distribution](plots/price_distribution.png)
+#### Distribuição de Preços por Waterfront
+![Distribuição de Preços por Waterfront](plots/boxplot_waterfront.png)
 
-#### Correlação entre Variáveis Numéricas
-![correlation_heatmap](plots/correlation_heatmap.png)
+#### Relação entre Preço e Área Acima do Solo
+![Relação entre Preço e Área Acima do Solo](plots/regplot_sqft_above.png)
 
-#### Relação entre Área Útil e Preço
-![sqft_vs_price](plots/sqft_vs_price.png)
+#### Mapa de Correlação das Variáveis Numéricas
+![Mapa de Correlação das Variáveis Numéricas](plots/correlation_heatmap.png)
+
 
 
 ### 4. Modelagem
