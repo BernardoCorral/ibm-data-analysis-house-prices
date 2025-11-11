@@ -56,16 +56,59 @@ Alguns dos gráficos gerados durante o processo estão destacados abaixo:
 
 
 ### 4. Modelagem
-Foi desenvolvido um modelo de **Regressão Linear** para prever o preço com base nas variáveis mais relevantes.
+
+Foram desenvolvidos e comparados diferentes modelos de **Regressão** para prever o preço de venda dos imóveis, utilizando uma abordagem incremental — começando com modelos simples e evoluindo para versões mais complexas e regulares.
+
+#### 4.1 Regressões Lineares Simples
+Inicialmente, foram testados modelos de **Regressão Linear simples**, utilizando uma variável por vez, com o objetivo de medir o poder explicativo individual de cada atributo em relação ao preço.
+
+| Variável | R² |
+|-----------|----|
+| `long` (longitude) | 0.0004 |
+| `sqft_living` (área útil) | 0.49 |
+
+Essa análise preliminar indicou que a variável `sqft_living` apresenta forte relação linear com o preço, sendo uma das mais relevantes do conjunto.
+
+#### 4.2 Regressão Linear Multivariada
+Na etapa seguinte, foi construído um modelo de **Regressão Linear múltipla**, combinando as variáveis com maior correlação com o preço:
+
+["floors", "waterfront", "lat", "bedrooms", 
+ "sqft_basement", "view", "bathrooms", 
+ "sqft_living15", "sqft_above", "grade"]
+
+O modelo apresentou um R² ≈ 0.65, evidenciando melhora significativa em relação aos modelos univariados.
+
+
+#### 4.3 Regressão Polinomial
+Para capturar relações **não lineares** entre as variáveis e o preço, foi implementada uma **Pipeline polinomial** composta por:
+
+- `StandardScaler()` → normalização dos dados  
+- `PolynomialFeatures()` → geração de interações e termos de maior ordem  
+- `LinearRegression()` → ajuste do modelo
+
+O modelo polinomial alcançou um **R² ≈ 0.75**, mostrando ganho expressivo de desempenho em comparação às regressões lineares.
+
+#### 4.4 Regularização com Ridge Regression
+Para mitigar o overfitting observado nos modelos mais complexos, foi aplicada **Ridge Regression (α = 0.1)** em ambas as versões (linear e polinomial):
+
+| Modelo | R² (aprox.) |
+|--------|--------------|
+| Ridge Linear | 0.64 |
+| Ridge Polinomial (grau 2) | 0.70 |
+
+Essa regularização ajudou a equilibrar **viés e variância**, resultando em previsões mais estáveis e generalizáveis.
 
 
 ### 5. Avaliação do Modelo
-As métricas de desempenho foram calculadas com base nos dados de teste:
 
-- **R² (coeficiente de determinação)**: 0.70  
-- **RMSE (Root Mean Squared Error)**: 130,000 (aprox.)
+O modelo final — **Ridge Polinomial de grau 2 (α = 0.1)** — apresentou o melhor equilíbrio entre desempenho e robustez.  
+As métricas foram calculadas sobre o conjunto de teste (15% dos dados):
 
-Esses resultados indicam que o modelo é capaz de capturar boa parte da variabilidade do preço com base nas variáveis estruturais e de área.
+- **R²:** 0.70  
+- **RMSE:** ≈ 130.000  
+
+Esses valores indicam que o modelo foi capaz de capturar cerca de **70% da variabilidade dos preços** com base nas variáveis estruturais e geográficas.  
+O desempenho alcançado é adequado para o tipo de problema e demonstra a importância de considerar **relações não lineares** e **regularização** no ajuste de modelos preditivos.
 
 
 ## Tecnologias Utilizadas
