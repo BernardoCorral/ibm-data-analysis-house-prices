@@ -134,7 +134,13 @@ As variáveis com maior impacto sobre o preço foram:
 
 Esses fatores refletem a influência direta da metragem e da qualidade da construção no valor de mercado das propriedades.
 
-![Certificado IBM Data Analysis with Python](certificates/ibm-data-analysis-certificate.png)
+
+## Certificado
+
+Este projeto foi desenvolvido como parte do curso **Data Analysis with Python**, oferecido pela IBM.  
+Abaixo, o certificado de conclusão do curso:
+
+[📄 Clique aqui para visualizar o certificado](certificates/ibm-data-analysis-certificate.pdf)
 
 
 ---
