@@ -121,7 +121,6 @@ O desempenho alcançado é adequado para o tipo de problema e demonstra a import
 - Scikit-learn  
 
 
-
 ## Resultados e Insights
 
 As variáveis com maior impacto sobre o preço foram:
@@ -134,6 +133,9 @@ As variáveis com maior impacto sobre o preço foram:
 | `bathrooms` | 0.53 |
 
 Esses fatores refletem a influência direta da metragem e da qualidade da construção no valor de mercado das propriedades.
+
+![Certificado IBM Data Analysis with Python](certificates/ibm-data-analysis-certificate.png)
+
 
 ---
 
